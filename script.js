@@ -1,8 +1,17 @@
 const container = document.querySelector('#container');
+const newBookBtn = document.querySelector('#new-book');
+const newBookModal = document.querySelector('#new-book-modal');
+const titleInput = document.querySelector('#title-input');
+const authorInput = document.querySelector('#author-input');
+const pagesInput = document.querySelector('#pages-input');
+const statusInput = document.querySelector('#status-input');
+const submitBtn = document.querySelector('#submit-btn');
+
+
 
 function Book(title,author,pages,status){
 
-    this.title = title;
+    this.title = title; 
     this.author = author;
     this.pages = pages;
     this.status = status;
@@ -20,8 +29,15 @@ function addBooktoLibrary(title,author,pages,status) {
    
 }
 
-addBooktoLibrary('bora','bts',235,'read');
-addBooktoLibrary('hello','me',293,'not read');
+
+newBookBtn.addEventListener('click', () => {
+    newBookModal.showModal();
+})
+
+
+submitBtn.addEventListener('click', 
+addBooktoLibrary(titleInput.value , authorInput.value , pagesInput.value , statusInput.value));
+
 
 bookArr.forEach((book) =>{
     let newDiv = document.createElement('div');

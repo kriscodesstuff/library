@@ -11,6 +11,25 @@
         <div id="container">
 
         </div>
+
+        <dialog id="new-book-modal">
+            <form method="dialog">
+                <label for="title">Book Title:</label>
+                <input type="text" name="title" id="title-input">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author-input">
+                <label for="pages">Number of Pages:</label>
+                <input type="number" name="pages" id="pages-input">
+                <label for="status">Read Status:</label>
+                <select name="status" id="status-input">
+                    <option value="read">Read</option>
+                    <option value="not-read">Not Read</option>
+                </select>
+                <button id="submit-btn" type="submit">Submit</button>
+            </form>
+        </dialog>
+
+        <button id="new-book">New Book</button>
     </div>
     <script src="script.js"></script>
 </body>
