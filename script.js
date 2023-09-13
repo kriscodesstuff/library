@@ -25,45 +25,51 @@ function Book(title,author,pages,status){
 const bookArr = [];
 
 function addBooktoLibrary(title,author,pages,status) {
-    bookArr.push(new Book(title,author,pages,status));
-   console.log(bookArr);
+    bookArr.push(new Book(title,author,pages,status)); 
 }
 
 
+
 newBookBtn.addEventListener('click', () => {
+
+    titleInput.value = '';
+    authorInput.value = '';
+    pagesInput.value = '';
+    statusInput.value = 'read';
+
     newBookModal.showModal();
 })
 
 
 submitBtn.addEventListener('click', () => {
-    
+
     addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
 
-    bookArr.forEach((book) =>{
-        let newDiv = document.createElement('div');
-        newDiv.classList.add('card');
-        container.appendChild(newDiv);
-    
-        let ul = document.createElement('ul');
-        newDiv.appendChild(ul);
-    
-        let titleLi = document.createElement('li');
-        titleLi.innerText = book.title;
-        ul.appendChild(titleLi);
-    
-        let authorLi = document.createElement('li');
-        authorLi.innerText = book.author;
-        ul.appendChild(authorLi);
-    
-        let pagesLi = document.createElement('li');
-        pagesLi.innerText = book.pages;
-        ul.appendChild(pagesLi);
-    
-        let statusLi = document.createElement('li');
-        statusLi.innerText = book.status;
-        ul.appendChild(statusLi);
-    
-    })
+    const test = bookArr[bookArr.length - 1].title;
+
+    let newDiv = document.createElement('div');
+    newDiv.classList.add('card');
+    container.appendChild(newDiv);
+
+    let ul = document.createElement('ul');
+    newDiv.appendChild(ul);
+
+    let titleLi = document.createElement('li');
+    titleLi.innerText = bookArr[bookArr.length - 1].title;
+    ul.appendChild(titleLi);
+
+    let authorLi = document.createElement('li');
+    authorLi.innerText = bookArr[bookArr.length - 1].author;
+    ul.appendChild(authorLi);
+
+    let pagesLi = document.createElement('li');
+    pagesLi.innerText = bookArr[bookArr.length - 1].pages;
+    ul.appendChild(pagesLi);
+
+    let statusLi = document.createElement('li');
+    statusLi.innerText = bookArr[bookArr.length - 1].status;
+    ul.appendChild(statusLi);
+
 })
 
 
