@@ -6,6 +6,7 @@ const authorInput = document.querySelector('#author-input');
 const pagesInput = document.querySelector('#pages-input');
 const statusInput = document.querySelector('#status-input');
 const submitBtn = document.querySelector('#submit-btn');
+let deleteButtons = document.querySelectorAll('.delete-btn');
 
 
 
@@ -22,13 +23,6 @@ function Book(title,author,pages,status){
 
 }
 
-const bookArr = [];
-
-function addBooktoLibrary(title,author,pages,status) {
-    bookArr.push(new Book(title,author,pages,status)); 
-}
-
-
 
 newBookBtn.addEventListener('click', () => {
 
@@ -40,37 +34,56 @@ newBookBtn.addEventListener('click', () => {
     newBookModal.showModal();
 })
 
+let bookArr = [];
+
+
+function addBooktoLibrary(title,author,pages,status) {
+    bookArr.push(new Book(title,author,pages,status)); 
+}
+
+function displayBook(array){
+
+    array.forEach(book => {
+
+        console.log(book.title);
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('card');
+        container.appendChild(newDiv);
+        
+        const bookList = document.createElement('ul');
+        newDiv.appendChild(bookList);
+
+        const bookTitle = document.createElement('li');
+        bookTitle.innerText = `${book.title}`;
+        bookList.appendChild(bookTitle);
+
+        const bookAuthor = document.createElement('li');
+        bookAuthor.innerText = `${book.author}`;
+        bookList.appendChild(bookAuthor);
+
+        const bookPages = document.createElement('li');
+        bookPages.innerText = `${book.pages}`;
+        bookList.appendChild(bookPages);
+
+        const bookStatus = document.createElement('li');
+        bookStatus.innerText = `${book.status}`;
+        bookList.appendChild(bookStatus);
+
+    });
+}
 
 submitBtn.addEventListener('click', () => {
 
     addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
 
-    const test = bookArr[bookArr.length - 1].title;
-
-    let newDiv = document.createElement('div');
-    newDiv.classList.add('card');
-    container.appendChild(newDiv);
-
-    let ul = document.createElement('ul');
-    newDiv.appendChild(ul);
-
-    let titleLi = document.createElement('li');
-    titleLi.innerText = bookArr[bookArr.length - 1].title;
-    ul.appendChild(titleLi);
-
-    let authorLi = document.createElement('li');
-    authorLi.innerText = bookArr[bookArr.length - 1].author;
-    ul.appendChild(authorLi);
-
-    let pagesLi = document.createElement('li');
-    pagesLi.innerText = bookArr[bookArr.length - 1].pages;
-    ul.appendChild(pagesLi);
-
-    let statusLi = document.createElement('li');
-    statusLi.innerText = bookArr[bookArr.length - 1].status;
-    ul.appendChild(statusLi);
+    displayBook(bookArr);
+    
 
 })
+
+
+
+
 
 
 
