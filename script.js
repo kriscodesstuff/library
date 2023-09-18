@@ -43,33 +43,43 @@ function addBooktoLibrary(title,author,pages,status) {
 
 function displayBook(array){
 
-    array.forEach(book => {
+    for(let i = 0; i <= array.length - 1; i++) {
 
-        console.log(book.title);
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('card');
-        container.appendChild(newDiv);
+        if(!document.querySelector(`#${array[i].title}`)){
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('card');
+            container.appendChild(newDiv);
+            
+            const bookList = document.createElement('ul');
+            bookList.setAttribute('id',`${array[i].title}`)
+            newDiv.appendChild(bookList);
+
+            const bookTitle = document.createElement('li');
+            bookTitle.innerText = `${array[i].title}`;
+            bookList.appendChild(bookTitle);
+
+            const bookAuthor = document.createElement('li');
+            bookAuthor.innerText = `${array[i].author}`;
+            bookList.appendChild(bookAuthor);
+
+            const bookPages = document.createElement('li');
+            bookPages.innerText = `${array[i].pages}`;
+            bookList.appendChild(bookPages);
+
+            const bookStatus = document.createElement('li');
+            bookStatus.innerText = `${array[i].status}`;
+            bookList.appendChild(bookStatus);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerText = 'Delete';
+            bookList.appendChild(deleteBtn);
+        } else{
+            continue;
+        }
         
-        const bookList = document.createElement('ul');
-        newDiv.appendChild(bookList);
+        
 
-        const bookTitle = document.createElement('li');
-        bookTitle.innerText = `${book.title}`;
-        bookList.appendChild(bookTitle);
-
-        const bookAuthor = document.createElement('li');
-        bookAuthor.innerText = `${book.author}`;
-        bookList.appendChild(bookAuthor);
-
-        const bookPages = document.createElement('li');
-        bookPages.innerText = `${book.pages}`;
-        bookList.appendChild(bookPages);
-
-        const bookStatus = document.createElement('li');
-        bookStatus.innerText = `${book.status}`;
-        bookList.appendChild(bookStatus);
-
-    });
+    };
 }
 
 submitBtn.addEventListener('click', () => {
