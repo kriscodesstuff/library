@@ -48,10 +48,10 @@ function displayBook(array){
         if(!document.querySelector(`#${array[i].title}`)){
             const newDiv = document.createElement('div');
             newDiv.classList.add('card');
+            newDiv.setAttribute('id',`${array[i].title}`)
             container.appendChild(newDiv);
             
             const bookList = document.createElement('ul');
-            bookList.setAttribute('id',`${array[i].title}`)
             newDiv.appendChild(bookList);
 
             const bookTitle = document.createElement('li');
@@ -72,7 +72,14 @@ function displayBook(array){
 
             const deleteBtn = document.createElement('button');
             deleteBtn.innerText = 'Delete';
+            deleteBtn.setAttribute('data-title',`${array[i].title}`);
             bookList.appendChild(deleteBtn);
+
+            deleteBtn.addEventListener('click', () =>{
+                const currentDiv = document.querySelector(`#${deleteBtn.dataset.title}`);
+                currentDiv.remove();
+                
+            })
         } else{
             continue;
         }
@@ -89,6 +96,12 @@ submitBtn.addEventListener('click', () => {
     displayBook(bookArr);
     
 
+});
+
+deleteButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button);
+    })
 })
 
 
