@@ -70,12 +70,12 @@ function displayBook(){
             const deleteBtn = document.createElement('button');
             deleteBtn.innerText = 'Delete';
             bookList.appendChild(deleteBtn);
-
-           
-        
-           
-       
-        
+    
+            deleteBtn.addEventListener('click', () => {
+                const currentDiv = deleteBtn.parentNode;
+                currentDiv.remove();
+            })
+            
 
     };
 
