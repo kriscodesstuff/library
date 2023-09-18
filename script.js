@@ -38,62 +38,53 @@ let bookArr = [];
 
 
 function addBooktoLibrary(title,author,pages,status) {
-    bookArr.push(new Book(title,author,pages,status)); 
+        bookArr.push(new Book(title,author,pages,status));  
 }
 
-function displayBook(array){
+function displayBook(){
 
-    for(let i = 0; i <= array.length - 1; i++) {
-
-        if(!document.querySelector(`#${array[i].title}`)){
+        
             const newDiv = document.createElement('div');
             newDiv.classList.add('card');
-            newDiv.setAttribute('id',`${array[i].title}`)
             container.appendChild(newDiv);
             
             const bookList = document.createElement('ul');
             newDiv.appendChild(bookList);
 
             const bookTitle = document.createElement('li');
-            bookTitle.innerText = `${array[i].title}`;
+            bookTitle.innerText = `${bookArr[bookArr.length - 1].title}`;
             bookList.appendChild(bookTitle);
 
             const bookAuthor = document.createElement('li');
-            bookAuthor.innerText = `${array[i].author}`;
+            bookAuthor.innerText = `${bookArr[bookArr.length - 1].author}`;
             bookList.appendChild(bookAuthor);
 
             const bookPages = document.createElement('li');
-            bookPages.innerText = `${array[i].pages}`;
+            bookPages.innerText = `${bookArr[bookArr.length - 1].pages}`;
             bookList.appendChild(bookPages);
 
             const bookStatus = document.createElement('li');
-            bookStatus.innerText = `${array[i].status}`;
+            bookStatus.innerText = `${bookArr[bookArr.length - 1].status}`;
             bookList.appendChild(bookStatus);
 
             const deleteBtn = document.createElement('button');
             deleteBtn.innerText = 'Delete';
-            deleteBtn.setAttribute('data-title',`${array[i].title}`);
             bookList.appendChild(deleteBtn);
 
-            deleteBtn.addEventListener('click', () =>{
-                const currentDiv = document.querySelector(`#${deleteBtn.dataset.title}`);
-                currentDiv.remove();
-                
-            })
-        } else{
-            continue;
-        }
+           
         
+           
+       
         
 
     };
-}
+
 
 submitBtn.addEventListener('click', () => {
 
     addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
 
-    displayBook(bookArr);
+    displayBook();
     
 
 });
