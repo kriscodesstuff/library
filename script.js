@@ -23,91 +23,97 @@ let deleteButtons = document.querySelectorAll('.delete-btn');
 
 // }
 
-let bookLibrary = [];
+
 
 class Book {
 
-    constructor(title,author,pages,status) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.status = status;
+    bookLibrary = new Array();
+
+    constructor() {}
+
+    addBooktoLibrary(title,author,pages,status) {
+        this.bookLibrary.push({title,author,pages,status});
+    }
+
+    getBooks() {
+        return this.bookLibrary;
     }
     
     
 }
 
 
-newBookBtn.addEventListener('click', () => {
 
-    titleInput.value = '';
-    authorInput.value = '';
-    pagesInput.value = '';
-    statusInput.value = 'read';
+// newBookBtn.addEventListener('click', () => {
 
-    newBookModal.showModal();
-})
+//     titleInput.value = '';
+//     authorInput.value = '';
+//     pagesInput.value = '';
+//     statusInput.value = 'read';
+
+//     newBookModal.showModal();
+// })
 
 
 
 
-function addBooktoLibrary(title,author,pages,status) {
-        bookLibrary.push(new Book(title,author,pages,status));  
-}
+// function addBooktoLibrary(title,author,pages,status) {
+//         bookLibrary.push(new Book(title,author,pages,status));  
+// }
 
-function displayBook(){
+// function displayBook(){
 
         
-            const newDiv = document.createElement('div');
-            newDiv.classList.add('card');
-            container.appendChild(newDiv);
+//             const newDiv = document.createElement('div');
+//             newDiv.classList.add('card');
+//             container.appendChild(newDiv);
             
-            const bookList = document.createElement('ul');
-            newDiv.appendChild(bookList);
+//             const bookList = document.createElement('ul');
+//             newDiv.appendChild(bookList);
 
-            const bookTitle = document.createElement('li');
-            bookTitle.innerText = `${bookArr[bookArr.length - 1].title}`;
-            bookList.appendChild(bookTitle);
+//             const bookTitle = document.createElement('li');
+//             bookTitle.innerText = `${bookArr[bookArr.length - 1].title}`;
+//             bookList.appendChild(bookTitle);
 
-            const bookAuthor = document.createElement('li');
-            bookAuthor.innerText = `${bookArr[bookArr.length - 1].author}`;
-            bookList.appendChild(bookAuthor);
+//             const bookAuthor = document.createElement('li');
+//             bookAuthor.innerText = `${bookArr[bookArr.length - 1].author}`;
+//             bookList.appendChild(bookAuthor);
 
-            const bookPages = document.createElement('li');
-            bookPages.innerText = `${bookArr[bookArr.length - 1].pages}`;
-            bookList.appendChild(bookPages);
+//             const bookPages = document.createElement('li');
+//             bookPages.innerText = `${bookArr[bookArr.length - 1].pages}`;
+//             bookList.appendChild(bookPages);
 
-            const bookStatus = document.createElement('li');
-            bookStatus.innerText = `${bookArr[bookArr.length - 1].status}`;
-            bookList.appendChild(bookStatus);
+//             const bookStatus = document.createElement('li');
+//             bookStatus.innerText = `${bookArr[bookArr.length - 1].status}`;
+//             bookList.appendChild(bookStatus);
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.innerText = 'Delete';
-            bookList.appendChild(deleteBtn);
+//             const deleteBtn = document.createElement('button');
+//             deleteBtn.innerText = 'Delete';
+//             bookList.appendChild(deleteBtn);
     
-            deleteBtn.addEventListener('click', () => {
-                const currentDiv = deleteBtn.parentNode;
-                currentDiv.remove();
-            })
+//             deleteBtn.addEventListener('click', () => {
+//                 const currentDiv = deleteBtn.parentNode;
+//                 currentDiv.remove();
+//             })
             
 
-    };
+//     };
 
 
-submitBtn.addEventListener('click', () => {
+// submitBtn.addEventListener('click', () => {
 
-    addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
+//     addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
 
-    displayBook();
+//     displayBook();
     
 
-});
+// });
 
-deleteButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        console.log(button);
-    })
-})
+// deleteButtons.forEach((button) => {
+//     button.addEventListener('click', () => {
+//         console.log(button);
+//     })
+// })
 
 
 
