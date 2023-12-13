@@ -23,13 +23,18 @@ let deleteButtons = document.querySelectorAll('.delete-btn');
 
 // }
 
+let bookLibrary = [];
+
 class Book {
+
     constructor(title,author,pages,status) {
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.status = status;
     }
+    
+    
 }
 
 
@@ -43,11 +48,11 @@ newBookBtn.addEventListener('click', () => {
     newBookModal.showModal();
 })
 
-let bookArr = [];
+
 
 
 function addBooktoLibrary(title,author,pages,status) {
-        bookArr.push(new Book(title,author,pages,status));  
+        bookLibrary.push(new Book(title,author,pages,status));  
 }
 
 function displayBook(){
