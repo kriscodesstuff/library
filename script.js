@@ -44,22 +44,17 @@ class Book {
 
 
 
-// newBookBtn.addEventListener('click', () => {
+newBookBtn.addEventListener('click', () => {
 
-//     titleInput.value = '';
-//     authorInput.value = '';
-//     pagesInput.value = '';
-//     statusInput.value = 'read';
+    titleInput.value = '';
+    authorInput.value = '';
+    pagesInput.value = '';
+    statusInput.value = 'read';
 
-//     newBookModal.showModal();
-// })
-
-
+    newBookModal.showModal();
+})
 
 
-// function addBooktoLibrary(title,author,pages,status) {
-//         bookLibrary.push(new Book(title,author,pages,status));  
-// }
 
 // function displayBook(){
 
@@ -99,15 +94,15 @@ class Book {
 
 //     };
 
+let newBook = new Book();
 
-// submitBtn.addEventListener('click', () => {
-
-//     addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
-
-//     displayBook();
+submitBtn.addEventListener('click', () => {
+    newBook.addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
+console.log(newBook.getBooks());
+    // displayBook();
     
 
-// });
+});
 
 // deleteButtons.forEach((button) => {
 //     button.addEventListener('click', () => {
