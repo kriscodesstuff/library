@@ -29,6 +29,8 @@ class Book {
     
 }
 
+let newBook = new Book();
+
 
 
 newBookBtn.addEventListener('click', () => {
@@ -81,18 +83,14 @@ function displayBook(){
 
     };
 
-let newBook = new Book();
+
 
 submitBtn.addEventListener('click', () => {
     newBook.addBooktoLibrary(titleInput.value,authorInput.value,pagesInput.value,statusInput.value);
     displayBook();
 });
 
-// deleteButtons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//         console.log(button);
-//     })
-// })
+
 
 
 
